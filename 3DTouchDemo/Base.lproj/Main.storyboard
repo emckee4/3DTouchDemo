@@ -42,7 +42,7 @@
         <!--PeekN Pop View Controller-->
         <scene sceneID="c16-M0-XBn">
             <objects>
-                <viewController id="7aV-J4-hW5" customClass="PeekNPopViewController" customModule="_DTouchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="peekVC" id="7aV-J4-hW5" customClass="PeekNPopViewController" customModule="_DTouchDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kiM-hl-Chk"/>
                         <viewControllerLayoutGuide type="bottom" id="gBo-sh-uOk"/>
@@ -139,7 +139,7 @@
         <!--PeekNPop-->
         <scene sceneID="RcS-GM-fqv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IzL-Ls-HXs" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="peekVCNav" automaticallyAdjustsScrollViewInsets="NO" id="IzL-Ls-HXs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="PeekNPop" id="9W0-OD-If4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nC2-3t-ccO">

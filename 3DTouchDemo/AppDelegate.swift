@@ -10,44 +10,108 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    var launchedShortcutItem:UIApplicationShortcutItem?
+    
+    enum ShortcutIdentifier: String {
+        case First
+        case Second
+        
+        // MARK: Initializers
+        
+        init?(fullType: String) {
+            guard let last = fullType.componentsSeparatedByString(".").last else { return nil }
+            
+            self.init(rawValue: last)
+        }
+        
+        // MARK: Properties
+        
+        var type: String {
+            return NSBundle.mainBundle().bundleIdentifier! + ".\(self.rawValue)"
+        }
+    }
+    
+    static let applicationShortcutUserInfoIconKey = "applicationShortcutUserInfoIconKey"
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        var shouldPerformAdditionalDelegateHandling = true
+        
+        // If a shortcut was launched, display its information and take the appropriate action
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+            
+            launchedShortcutItem = shortcutItem
+            
+            // This will block "performActionForShortcutItem:completionHandler" from being called.
+            shouldPerformAdditionalDelegateHandling = false
+        }
+        
+        // Install initial versions of our two extra dynamic shortcuts.
+        if let shortcutItems = application.shortcutItems where shortcutItems.isEmpty {
+            // Construct the items.
+            let dynamicShortcut = UIMutableApplicationShortcutItem(type: ShortcutIdentifier.Second.type, localizedTitle: "Open JunkVC", localizedSubtitle: "dynamic item", icon: UIApplicationShortcutIcon(type: .Compose), userInfo: [
+                AppDelegate.applicationShortcutUserInfoIconKey: UIApplicationShortcutIconType.Add.rawValue
+                ]
+            )
+            
+            
+            // Update the application providing the initial 'dynamic' shortcut items.
+            application.shortcutItems = [dynamicShortcut]
+        }
+        
+        return shouldPerformAdditionalDelegateHandling
     }
-
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
     
-//    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-//        if url.host == nil {
-//            return true
-//        }
-//        return true
-//    }
-
+    
+    func handleShortcutItem(shortcutItem:UIApplicationShortcutItem)->Bool{
+        var handled = false
+        // Verify that the provided `shortcutItem`'s `type` is one handled by the application.
+        guard ShortcutIdentifier(fullType: shortcutItem.type) != nil else { return false }
+        
+        guard let shortCutType = shortcutItem.type as String? else { return false }
+        let tabBarVC = window!.rootViewController! as! UITabBarController
+        
+        
+        print(tabBarVC.viewControllers)
+        switch (shortCutType) {
+        case ShortcutIdentifier.First.type:
+            handled = true
+            
+            tabBarVC.selectedViewController = tabBarVC.viewControllers![1]
+            break
+        case ShortcutIdentifier.Second.type:
+            handled = true
+            
+            let peekNav = tabBarVC.viewControllers![1] as! UINavigationController
+            tabBarVC.selectedViewController = peekNav
+            let junkVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("junkVC")
+            peekNav.pushViewController(junkVC, animated: true)
+            break
+        default:
+            break
+        }
+        
+        return handled
+        
+        
+    }
+    
+    func applicationDidBecomeActive(application: UIApplication) {
+        guard let shortcut = launchedShortcutItem else { return }
+        handleShortcutItem(shortcut)
+        launchedShortcutItem = nil
+    }
+    
+    
+    
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        let handledShortCutItem = handleShortcutItem(shortcutItem)
+        
+        completionHandler(handledShortCutItem)
+    }
+    
 }
 
