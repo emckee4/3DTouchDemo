@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		C04804D61BB73A6300EDC24D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04804D51BB73A6300EDC24D /* AppDelegate.swift */; };
-		C04804D81BB73A6300EDC24D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04804D71BB73A6300EDC24D /* ViewController.swift */; };
+		C04804D81BB73A6300EDC24D /* PressueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04804D71BB73A6300EDC24D /* PressueViewController.swift */; };
 		C04804DB1BB73A6300EDC24D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04804D91BB73A6300EDC24D /* Main.storyboard */; };
 		C04804DD1BB73A6300EDC24D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C04804DC1BB73A6300EDC24D /* Assets.xcassets */; };
 		C04804E01BB73A6300EDC24D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C04804DE1BB73A6300EDC24D /* LaunchScreen.storyboard */; };
 		C04804EB1BB73A6300EDC24D /* _DTouchDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04804EA1BB73A6300EDC24D /* _DTouchDemoTests.swift */; };
 		C04804F61BB73A6300EDC24D /* _DTouchDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04804F51BB73A6300EDC24D /* _DTouchDemoUITests.swift */; };
+		C04805041BB73DEE00EDC24D /* PeekNPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04805031BB73DEE00EDC24D /* PeekNPopViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C04805061BB7829800EDC24D /* JunkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04805051BB7829800EDC24D /* JunkViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		C04804D21BB73A6300EDC24D /* 3DTouchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3DTouchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04804D51BB73A6300EDC24D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C04804D71BB73A6300EDC24D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C04804D71BB73A6300EDC24D /* PressueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressueViewController.swift; sourceTree = "<group>"; };
 		C04804DA1BB73A6300EDC24D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C04804DC1BB73A6300EDC24D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C04804DF1BB73A6300EDC24D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		C04804F11BB73A6300EDC24D /* 3DTouchDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 3DTouchDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04804F51BB73A6300EDC24D /* _DTouchDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _DTouchDemoUITests.swift; sourceTree = "<group>"; };
 		C04804F71BB73A6300EDC24D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C04805031BB73DEE00EDC24D /* PeekNPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekNPopViewController.swift; sourceTree = "<group>"; };
+		C04805051BB7829800EDC24D /* JunkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JunkViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				C04804D51BB73A6300EDC24D /* AppDelegate.swift */,
-				C04804D71BB73A6300EDC24D /* ViewController.swift */,
+				C04804D71BB73A6300EDC24D /* PressueViewController.swift */,
+				C04805031BB73DEE00EDC24D /* PeekNPopViewController.swift */,
+				C04805051BB7829800EDC24D /* JunkViewController.swift */,
 				C04804D91BB73A6300EDC24D /* Main.storyboard */,
 				C04804DC1BB73A6300EDC24D /* Assets.xcassets */,
 				C04804DE1BB73A6300EDC24D /* LaunchScreen.storyboard */,
@@ -192,6 +198,7 @@
 				TargetAttributes = {
 					C04804D11BB73A6300EDC24D = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = H2TACJ74Y9;
 					};
 					C04804E51BB73A6300EDC24D = {
 						CreatedOnToolsVersion = 7.0;
@@ -255,7 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C04804D81BB73A6300EDC24D /* ViewController.swift in Sources */,
+				C04805041BB73DEE00EDC24D /* PeekNPopViewController.swift in Sources */,
+				C04804D81BB73A6300EDC24D /* PressueViewController.swift in Sources */,
+				C04805061BB7829800EDC24D /* JunkViewController.swift in Sources */,
 				C04804D61BB73A6300EDC24D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,10 +407,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = 3DTouchDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.McKeeMaKer.-DTouchDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -409,10 +421,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = 3DTouchDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.McKeeMaKer.-DTouchDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

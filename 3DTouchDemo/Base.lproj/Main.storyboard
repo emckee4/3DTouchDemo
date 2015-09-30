@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NTA-i2-XKN">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pressure-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pressureVC" id="BYZ-38-t0r" customClass="PressueViewController" customModule="_DTouchDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,144 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ga-Cv-SBA" userLabel="PressurePadView">
+                                <rect key="frame" x="20" y="28" width="560" height="509"/>
+                                <color key="backgroundColor" red="0.0" green="0.6397917648" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Ga-Cv-SBA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="1Xe-bo-IWL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5Ga-Cv-SBA" secondAttribute="bottom" constant="14" id="IoH-IK-BZC"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5Ga-Cv-SBA" secondAttribute="leading" id="ffY-Em-cZc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Ga-Cv-SBA" secondAttribute="trailing" id="ict-8L-PM9"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Pressure" id="g2o-uI-7BP"/>
+                    <connections>
+                        <outlet property="pressurePadView" destination="5Ga-Cv-SBA" id="D7O-V3-Mzg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1077" y="429"/>
+        </scene>
+        <!--PeekN Pop View Controller-->
+        <scene sceneID="c16-M0-XBn">
+            <objects>
+                <viewController id="7aV-J4-hW5" customClass="PeekNPopViewController" customModule="_DTouchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kiM-hl-Chk"/>
+                        <viewControllerLayoutGuide type="bottom" id="gBo-sh-uOk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P8C-p8-glK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cl-9Y-Ggf">
+                                <rect key="frame" x="200" y="250" width="200" height="100"/>
+                                <color key="backgroundColor" red="0.85280257936507931" green="0.85280257936507931" blue="0.85280257936507931" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="FgH-BM-JRz"/>
+                                    <constraint firstAttribute="height" constant="100" id="hdb-GN-5ci"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="19"/>
+                                <state key="normal" title="PeekNPopMe!">
+                                    <color key="titleColor" red="0.050980392159999999" green="0.30196078430000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="7aV-J4-hW5" eventType="touchUpInside" id="Cc6-cZ-DAd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6cl-9Y-Ggf" firstAttribute="centerX" secondItem="P8C-p8-glK" secondAttribute="centerX" id="7AA-Bw-5gO"/>
+                            <constraint firstItem="6cl-9Y-Ggf" firstAttribute="centerY" secondItem="P8C-p8-glK" secondAttribute="centerY" id="ESD-en-00X"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="K60-sY-xug"/>
+                    <connections>
+                        <outlet property="button" destination="6cl-9Y-Ggf" id="OUF-LU-rWW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dLv-oR-hhn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2411" y="429"/>
+        </scene>
+        <!--Junk View Controller-->
+        <scene sceneID="HBp-a7-U9w">
+            <objects>
+                <viewController storyboardIdentifier="junkVC" id="PaF-sT-e2a" customClass="JunkViewController" customModule="_DTouchDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="33H-oD-vIa"/>
+                        <viewControllerLayoutGuide type="bottom" id="xrg-pA-Nt2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZBF-lE-kKs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpf-U4-kwK">
+                                <rect key="frame" x="20" y="40" width="560" height="540"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wpf-U4-kwK" firstAttribute="leading" secondItem="ZBF-lE-kKs" secondAttribute="leading" constant="20" id="6St-ZM-scD"/>
+                            <constraint firstItem="xrg-pA-Nt2" firstAttribute="top" secondItem="wpf-U4-kwK" secondAttribute="bottom" constant="20" id="73x-EC-ffm"/>
+                            <constraint firstAttribute="trailing" secondItem="wpf-U4-kwK" secondAttribute="trailing" constant="20" id="Ldj-t2-O2d"/>
+                            <constraint firstItem="wpf-U4-kwK" firstAttribute="top" secondItem="33H-oD-vIa" secondAttribute="bottom" constant="20" id="PSt-pq-dXA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pOh-kl-HRb"/>
+                    <connections>
+                        <outlet property="textView" destination="wpf-U4-kwK" id="Mhr-UZ-eWy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="11q-7g-KMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2085" y="1157"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Tzf-Cv-kYm">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="NTA-i2-XKN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="OxS-wd-hyz">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="CDI-yY-hlz"/>
+                        <segue destination="IzL-Ls-HXs" kind="relationship" relationship="viewControllers" id="dhd-BG-Cha"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sPx-KU-PNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="265" y="429"/>
+        </scene>
+        <!--PeekNPop-->
+        <scene sceneID="RcS-GM-fqv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IzL-Ls-HXs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="PeekNPop" id="9W0-OD-If4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nC2-3t-ccO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7aV-J4-hW5" kind="relationship" relationship="rootViewController" id="YbW-qg-wuL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oOh-yx-n3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1719" y="429"/>
         </scene>
     </scenes>
 </document>
